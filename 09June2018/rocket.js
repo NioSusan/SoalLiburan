@@ -16,8 +16,6 @@
 function benderaInggris(param)
 {
   var middle = (param-1)/2;//(9-1)/2=4
-  var horizontal="";
-  var vertical="";
   var print="";
     if(param%2===0){
       return "invalid input";
