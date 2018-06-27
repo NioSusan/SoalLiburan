@@ -1,3 +1,19 @@
+//Solution 1
+function soal3(arr){
+  arr.sort();
+  var oby={};
+  for(var animal of arr){
+    if(!oby[animal[0]]){
+      oby[animal[0]] = [animal];
+    } else {
+      oby[animal[0]].push(animal);
+    }
+  }
+  return oby;
+}
+
+/* ========================================================= */
+//Solution 2
 function AlphabetGrouping(arr){
     arr.sort();
     var match=[];

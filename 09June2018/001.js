@@ -3,7 +3,6 @@
 function soal1(param)
 {
   var print=[];
-  var middle = (param-1)/2;
   var lowMiddle = Math.floor((param-1)/2);
   var highMiddle = Math.ceil((param-1)/2);
   
@@ -12,7 +11,7 @@ function soal1(param)
   } 
   
   for(var i=0;i<param;i++){
-     if(i===middle || i===lowMiddle || i===highMiddle){
+     if(i===lowMiddle || i===highMiddle){
         print.push("*");
       } else {
         print.push(" ");

@@ -13,7 +13,29 @@
     petunjuk : 
     - input harus bernilai ganjil , jika tidak ganjil maka " invalid input "
 */
-/* Solution 1 */
+
+//Solution 1 - console log
+function benderaInggris(num){
+  if(num%2===0){
+    return "Invalid input"
+  }
+  var middle=(num-1)/2;
+  for(var i=0;i<num;i++){
+    var print = "";
+    for(var j=0; j<num; j++){
+      if(i===middle){
+        print+="*";
+      }else if(j===middle){
+        print+="*";
+      } else {
+         print+=" ";
+      }
+    }
+    console.log(print);
+  }
+}
+
+/* Solution 2 - return */
 function benderaInggris(param)
 {
   var middle = (param-1)/2;//(9-1)/2=4
@@ -61,54 +83,3 @@ console.log(benderaInggris(5))
 */
 
 console.log(benderaInggris(4)) // invalid input
-
-/* Solution 2 
-function benderaInggris(param)
-{
-  var middle = (param-1)/2;
-  var print;
-    if(param%2===0){
-      console.log("invalid input");
-    } else {
-      for(var i=0; i<param; i++){
-        print="";
-        for(var j=0; j<param; j++){
-          if(i===middle){
-            print+="*";
-          } else if(j===middle){
-            print+="*";
-          } else {
-            print +=" ";
-          }
-        }
-        console.log(print);
-      }
-    }  
-}
-*/
-
-// benderaInggris(9);
-
-/*
-    output:
-    '    *    ' // 1
-    '    *    ' // 2
-    '    *    ' // ..
-    '    *    '
-    '*********'
-    '    *    '
-    '    *    '
-    '    *    '
-    '    *    ' // 9
-*/
-
-// benderaInggris(5);
-/*
-    '  *  '
-    '  *  '
-    '*****'
-    '  *  '
-    '  *  '
-*/
-
-// benderaInggris(4); // invalid input

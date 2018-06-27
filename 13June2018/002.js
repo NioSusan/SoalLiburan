@@ -1,30 +1,18 @@
-function soal2(param)
-{
-    if(param.length<=2){
-      return "invalid input";
+function soal2(arr){
+  if(arr.length<=2){
+    return "invalid input";
+  }
+  var low=Math.floor((arr.length-1)/2);
+  var high=Math.ceil((arr.length-1)/2);
+  var multi=arr[0]*arr[arr.length-1];
+  for(var i=0;i<arr.length;i++){
+    if(arr.length%2===0){
+      arr[high]=multi;
     }
-    
-    var length = param.length;
-    var front = Number(param[0]);
-    var end = Number(param[length-1]);
-    var middle = (length-1)/2;
-    var lowMiddle= Math.floor((length-1)/2);
-    var highMiddle= Math.ceil((length-1)/2);
-
-    for(var i=0; i<length; i++){
-      if(length%2==0){ //odd numbers
-        if(i===lowMiddle || i===highMiddle){
-          param[i] = front * end;
-        }
-      } else { //even numbers
-        if(i===middle){
-          param[i] = front * end;
-        }
-      }
-    }
-    return param;
+    arr[low]=multi;
+  }
+  return arr;
 }
-
 console.log(soal2([34,'','','',40]))
 // [34,'',1360,'',40]
 

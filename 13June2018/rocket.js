@@ -26,6 +26,34 @@ function rocket(param)
     }
     return result;
 }
+/* =============================================================== */
+//Solution 2
+function rocket(num){
+    var table= [];
+    for(var i=0;i<num;i++){
+      table.push([]);
+    }
+    var low=Math.floor((num-1)/2);
+    var high=Math.ceil((num-1)/2);
+    for(var row=0;row<num;row++){
+      for(var col=0;col<num;col++){
+        if(num%2===0){
+            if((row===low || row===high) && (col===low || col===high)){
+            table[row][col]="*";
+          }else{
+            table[row][col]=" ";
+          }
+        }else{
+          if(row===low && col===low){
+            table[row][col]="*";
+          }else{
+            table[row][col]=" ";
+          }
+        }
+      }
+    }
+    return table;
+}
 
 console.log(rocket(5))
 /*

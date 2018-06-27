@@ -1,5 +1,4 @@
-function soal1(param)
-{
+function soal1(param){
   var result=[];
     for(var i=1; i<=param; i++ ){
       if(i%4===0 & i%7===0){

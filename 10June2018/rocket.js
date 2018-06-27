@@ -8,9 +8,27 @@
     - input harus lebih dari 3 , jika tidak maka "invalid input"
     - input harus bernilai ganjil , jika tidak ganjil maka " invalid input "
 */
-
-function scotlandFlag(param)
-{
+//Solution 1
+function scotlandFlag(param){
+  if(param<3 || param%2===0){
+    return "Invalid input";
+  }
+  var count=param-1;
+  for(var i=0;i<param;i++){
+    var print="";
+    for(var j=0;j<param;j++){
+      if(j===i || j===count-i){
+        print+="*";
+      } else {
+        print+=" ";
+      }
+    }
+    console.log(print);
+  }
+}
+/* ======================================================= */
+//Solution 2
+function scotlandFlag(param){
     var print;
     var result="";
     var num=1;

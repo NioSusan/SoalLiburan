@@ -29,35 +29,79 @@
     END FUNCTION
     
 */
-
-function soal2(param)
-{
-  var asciiLetter="";
-  var asciinum=65;//65-90 === A-Z;
-  var box=[];
-  var result=[];
-  if(param===0){
-    return "invalid input";
+//Solution 1 - using array literal
+function soal2(num){
+  if(num<=0){
+    return "Invalid input";
   }
-  for(var i=0;i<param;i++){
-    for(var j=0;j<param;j++){
-      if(asciinum===90){
-        asciiLetter = String.fromCharCode(asciinum).toLowerCase();
-        box.push(asciiLetter);
-        asciinum=65;
-      } else {
-        asciiLetter = String.fromCharCode(asciinum).toLowerCase();
-        box.push(asciiLetter);
-        asciinum++;
-      } 
+  var table=[];
+  for(var i=0;i<num;i++){
+    table.push([]);
+  }
+  var start=97;
+  var end=122;
+  for(var row=0;row<num;row++){
+    for(var col=0;col<num;col++){
+      table[row][col]= String.fromCharCode(start);
+      if(start===end){
+        start=97;
+      }else{
+        start++;
+      }
     }
-    result.push(box);
-    box=[];
+  }
+  return table;
+}
 
+/* ==================================================== */
+//Solution 2 - Using new Array(num);
+function soal2(num){
+  if(num<=0){
+    return "Invalid input";
+  }
+  var table=new Array(num);
+  for(var i=0;i<table.length;i++){
+    table[i]=new Array(num);
+  }
+  var start=97;
+  var end=122;
+  for(var row=0;row<table.length;row++){
+    for(var col=0;col<table[row].length;col++){
+      table[row][col]= String.fromCharCode(start);
+      if(start===end){
+        start=97;
+      }else{
+        start++;
+      }
+    }
+  }
+  return table;
+}
+
+/* ==================================================== */
+//Solution 3 - using num*num
+function soal2(num){
+  if(num<=0){
+    return "Invalid input";
+  }
+  var result=[];
+  var filter=[];
+  var start=97;
+  var end=122;
+  for(var i=0;i<=num*num;i++){
+    filter.push(String.fromCharCode(start));
+    if(start===end){
+        start=97;
+    }else{
+        start++;
+    }
+    if(filter.length===num){
+      result.push(filter);
+      filter=[];
+    }
   }
   return result;
 }
-
 console.log(soal2(8))
 /*
     [
@@ -81,3 +125,4 @@ console.log(soal2(2))
 */
 
 console.log(soal2(0)) // invalid input
+
